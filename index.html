@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number Checker</title>
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/scripts.js"></script>
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1 class="text-center">Crystal Collector</h1>
+    <h2 class="text-center">See if you can guess the number by adding jewels together</h2>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Computer Pick</h3>
+        </div>
+        <div class="panel-body text-center">
+          <h1 id="computer-pick" value="computerPick"></h1>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">You Pick</h3>
+        </div>
+        <div class="panel-body text-center">
+          <img id="amber" src="./img/amber.png" value="amber" />
+          <img id="blue" src="./img/blue.png" value="blue" />
+          <img id="black" src="./img/black.png" value="black" />
+          <img id="red" src="./img/red.png" value="red" />
+          <img id="yellow" src="./img/yellow.png" value="yellow" />
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Result</h3>
+        </div>
+        <div class="panel-body text-center">
+          <h1 id="result"></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
