@@ -13,17 +13,17 @@
 // make some sound for each jewel seperately
 
 
-var randomNumberToBeGuessed = "";
+
 var amber;
 var black;
 var blue;
 var red;
 var yellow;
+var counter = 0;
 
 
  $(document).ready(function() {
       // Initial Variables
-      var yourPick = 0;
       var computerPick = Math.floor(Math.random() * 40) + 10;
       var amber = Math.floor(Math.random() * 10) + 2;
       var black = Math.floor(Math.random() * 10) + 3;
@@ -51,40 +51,45 @@ var yellow;
 
       
       $('#amber').on("click", function() {
-
-        console.log(this);
+// Each time the user clicks the crystal the counter goes up by 1.
+    counter += 1;
+        console.log("You clicked this crystal " + counter + " times!");
 
         $("#result").append(amber);
 
       });
 
       $('#blue').on("click", function() {
-
-        console.log(this);
+// Each time the user clicks the crystal the counter goes up by 1.
+    counter += 1;
+        console.log("You clicked this crystal " + counter + " times!");
 
         $("#result").append(blue);
 
       });
 
       $('#red').on("click", function() {
-
-        console.log(this);
+// Each time the user clicks the crystal the counter goes up by 1.
+    counter += 1;
+        console.log("You clicked this crystal " + counter + " times!");
 
         $("#result").append(red);
 
       });
 
       $('#black').on("click", function() {
-
-        console.log(this);
+// Each time the user clicks the crystal the counter goes up by 1.
+    counter += 1;
+        console.log("You clicked this crystal " + counter + " times!");
 
         $("#result").append(black);
 
       });
 
       $('#yellow').on("click", function() {
-
-        console.log(this);
+// Each time the user clicks the crystal the counter goes up by 1.
+    counter += 1;
+        console.log("You clicked this crystal " + counter + " times!");
 
         $("#result").append(yellow);
 
@@ -121,16 +126,29 @@ var yellow;
 		// console.log()
 
 
-          // If your pick matched the computer's pick you let them know.
-          if (parseInt(yourPick) === computerPick) {
-            $("#result").text("Yep! You got it! Refresh the page to play again.");
-            lockGame = true;
-          }
-          // If the numbers did not match. You also let them know
-          else {
-            $("#result").text("Nope. Refresh the page to play again.");
-            lockGame = true;
-          }
+
+    if (result === computerPick) {
+
+      alert("You win!");
+    }
+
+    // Here we added an "else if" condition. If the user's counter ever exceeds the computerPick...
+    else if (result >= computerPick) {
+
+      // Then they are alerted with a loss.
+      alert("You lose!!");
+    }
+
+          // // If your pick matched the computer's pick you let them know.
+          // if (parseInt(result) === computerPick) {
+          //   $("#result").text("Yep! You got it! Refresh the page to play again.");
+          //   lockGame = true;
+          // }
+          // // If the numbers did not match. You also let them know
+          // else {
+          //   $("#result").text("Nope. Refresh the page to play again.");
+          //   lockGame = true;
+          // }
         }
       });
     });
