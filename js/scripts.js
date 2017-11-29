@@ -49,8 +49,46 @@ var yellow;
         $('#result').html(red);
         console.log("Yellow: " + yellow);
 
+      
+      $('#amber').on("click", function() {
 
+        console.log(this);
 
+        $("#result").append(amber);
+
+      });
+
+      $('#blue').on("click", function() {
+
+        console.log(this);
+
+        $("#result").append(blue);
+
+      });
+
+      $('#red').on("click", function() {
+
+        console.log(this);
+
+        $("#result").append(red);
+
+      });
+
+      $('#black').on("click", function() {
+
+        console.log(this);
+
+        $("#result").append(black);
+
+      });
+
+      $('#yellow').on("click", function() {
+
+        console.log(this);
+
+        $("#result").append(yellow);
+
+      });
 
 
       // Here we create the on click event that gets the user"s pick
