@@ -23,13 +23,13 @@
   var blue;
   var red;
   var yellow;
- 
+
   var wins = 0 ;
   var losses = 0 ;
 
   $(document).ready(function() {
         // Initial Variables
-         var counter = 0;
+        var counter = 0;
         var computerPick =Math.floor(Math.random() * (121-19)+19);        
         $('#computerPick').text(computerPick);
         var amber = Math.floor(Math.random() * (13 - 1) + (1));
@@ -58,40 +58,40 @@
 //onclick functions
          // Each time the user clicks the crystal the counter goes up by 1.
 
-        $("#amber").click(function () {
-            userSum(amber);
-            console.log(amber);
-        counter += 1;
+         $("#amber").click(function () {
+          userSum(amber);
+          console.log(amber);
+          counter += 1;
 
         });
 
-        $("#blue").click(function () {
-            userSum(blue);
-            console.log(blue);
+         $("#blue").click(function () {
+          userSum(blue);
+          console.log(blue);
 
 
         });
 
-        $("#red").click(function () {
+         $("#red").click(function () {
 
-            userSum(red);
-            console.log(red);
-
-
-        });
-        $("#black").click(function () {
-            userSum(black);
-
-
-            console.log(black);
+          userSum(red);
+          console.log(red);
 
 
         });
-        $("#yellow").click(function () {
+         $("#black").click(function () {
+          userSum(black);
 
-            userSum(yellow);
 
-            console.log(yellow);
+          console.log(black);
+
+
+        });
+         $("#yellow").click(function () {
+
+          userSum(yellow);
+
+          console.log(yellow);
 
 
         });
@@ -115,17 +115,20 @@
           $("#result").html(counter);
 
           if (counter>computerPick){
+            $('#doh')[0].play();
+            $('#loseModal').modal('show')
 
-            alert("sorry game over!");
             losses++;
             $('#losses').html(losses);
-
+            
             reset();
 
           } else if (counter == computerPick)
           {
 
-            alert("You Win!!");
+            // Then they are alerted with a loss.
+            $('#winModal').modal('show');
+            $('#smart')[0].play();
             wins++;
             $('#wins').html(wins);
 
@@ -159,8 +162,8 @@
 
       if (result === computerPick) {
 
-      $('#winModal').modal('show');
-      $('#smart')[0].play();
+        $('#winModal').modal('show');
+        $('#smart')[0].play();
       }
 
       // Here we added an "else if" condition. If the user's counter ever exceeds the computerPick...
@@ -172,7 +175,7 @@
       }
 
 
-});
+    });
 
 
 //some effect to perfect it
