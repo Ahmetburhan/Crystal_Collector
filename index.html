@@ -1,50 +1,69 @@
   <!DOCTYPE html>
   <html lang="en">
   <head>
+  <canvas id=c></canvas>
+
     <title>Crystal Game Collector by Ahmet K.</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script src="js/scripts.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">    
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">   
+    
     <script type="text/javascript">
       $(document).ready(function(){
         $("#myModal").modal('show');
       });
     </script>
+
   </head>
 
   <body>
-    <div class="jumbotron">
+
+      
+
+    <div>
       <h1 class="text-center">Crystal Collector</h1>
       <h2 class="text-center">See if you can guess the number by adding jewels together</h2>
     </div>
+
     <div class="container">
       <div class="row">
-        <div class="panel panel-default">
+       <!--  <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Computer Pick</h3>
           </div>
           <div class="panel-body text-center">
             <h1 id="computer-pick" value="computerPick"></h1>
           </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">You Pick</h3>
-          </div>
-          <div class="panel-body text-center">
+        </div> -->
+      
+
+          <div>
+            <div class="panel-body text-center">
             <img id="amber" src="./img/amber.png" value="amber" />
             <img id="blue" src="./img/blue.png" value="blue" />
             <img id="black" src="./img/black.png" value="black" />
             <img id="red" src="./img/red.png" value="red" />
             <img id="yellow" src="./img/yellow.png" value="yellow" />
           </div>
+      <div class="col-md-3 col-sm-6 col-xs-3">
+        <div class="panel panel-transparent panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Computer Guess</h3>
+          </div>
+          <div class="panel-body text-center">
+            <h1 id="computer-pick" value="computerPick"></h1>
+          </div>
         </div>
+      </div>
 
-        <div class="panel panel-default">
+      <div class="col-md-3 col-sm-6 col-xs-3">
+        <div class="panel panel-transparent panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Result</h3>
           </div>
@@ -53,19 +72,37 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-3 col-sm-6 col-xs-3">
+        <div class="panel panel-transparent panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Wins</h3>
+          </div>
+          <div class="panel-body text-center">
+            <h1 id="wins"></h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 col-xs-3">
+        <div class="panel panel-transparent panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Lost</h3>
+          </div>
+          <div class="panel-body text-center">
+            <h1 id="losses"></h1>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
     </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Scoreboard</h3>
-      </div>
-      <div class="panel-body">
-        <h3><span id="status"></span></h3>
-        <h3>Wins: <span id="win"></span></h3>
-        <h3>Losses: <span id="loss"></span> </h3>
-        <h1 id="scoreboard"></h1>
-      </div>
-    </div>
+   
 
 
 
@@ -98,7 +135,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
     <!-- pop up on the winning case -->
     <div class="modal fade" id="winModal" role="dialog">
@@ -141,5 +178,7 @@
       </div>
     </div>
   </div>
+
 </body>
+
 </html>
