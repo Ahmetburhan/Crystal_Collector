@@ -10,6 +10,7 @@ z-index:-1;
 }
 
   body {
+    margin-top: 30px;
   	background-color: #000;
   }
  
@@ -24,6 +25,7 @@ z-index:-1;
   .red {
   	font-family: Pacifico !important;
   	font-size: 28px;
+    color: crimson !important;
   }
 
 

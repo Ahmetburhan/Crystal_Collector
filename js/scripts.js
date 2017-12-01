@@ -13,186 +13,204 @@
   // make some sound for each jewel seperately
 
 
-    $(document).ready(function(){
+  $(document).ready(function(){
     $("#myModal").modal('show');
-     });
-    
+  });
+
 
   var amber;
   var black;
   var blue;
   var red;
   var yellow;
-  var counter = 0;
+ 
+  var wins = 0 ;
+  var losses = 0 ;
 
-
-   $(document).ready(function() {
+  $(document).ready(function() {
         // Initial Variables
-        var computerPick = Math.floor(Math.random() * 40) + 10;
-        var amber = Math.floor(Math.random() * 10) + 2;
-        var black = Math.floor(Math.random() * 10) + 3;
-        var blue = Math.floor(Math.random() * 10) + 4;
-        var red = Math.floor(Math.random() * 20) - 1;
-        var yellow = Math.floor(Math.random() * 30) - 2;
+         var counter = 0;
+        var computerPick =Math.floor(Math.random() * (121-19)+19);        
+        $('#computerPick').text(computerPick);
+        var amber = Math.floor(Math.random() * (13 - 1) + (1));
+        var black = Math.floor(Math.random() * (13 - 1) + (1));
+        var blue = Math.floor(Math.random() * (13 - 1) + (1));
+        var red = Math.floor(Math.random() * (13 - 1) + (1));
+        var yellow = Math.floor(Math.random() * (13 - 1) + (1));
 
-        var lockGame = false;
         // We log the computer's pick to console to make it easier to troubleshoot
         console.log("Computer Pick: " + computerPick);
 
          // We then reveal the computer's pick in the html
-         //and consolo log all the values of Jewels
-          $('#computer-pick').text(computerPick);
-          $('#amber').html(amber);
-          console.log("Amber: " + amber);
-          $('#result').html(black);
-          console.log("Black: " + black);
-          $('#result').html(blue);
-          console.log("Blue: " + blue);
-          $('#result').html(yellow);
-          console.log("Red: " + red);
-          $('#result').html(red);
-          console.log("Yellow: " + yellow);
+         // and consolo log all the values of Jewels
+         $('#computer-pick').text(computerPick);
+         $('#amber').html(amber);
+         console.log("Amber: " + amber);
+         $('#result').html(black);
+         console.log("Black: " + black);
+         $('#result').html(blue);
+         console.log("Blue: " + blue);
+         $('#result').html(yellow);
+         console.log("Red: " + red);
+         $('#result').html(red);
+         console.log("Yellow: " + yellow);
 
-        
-        $('#amber').on("click", function() {
-  // Each time the user clicks the crystal the counter goes up by 1.
-      counter += 1;
-          console.log("You clicked this crystal " + counter + " times!");
+//onclick functions
+         // Each time the user clicks the crystal the counter goes up by 1.
 
-          $("#result").append(amber);
-
-        });
-
-        $('#blue').on("click", function() {
-  // Each time the user clicks the crystal the counter goes up by 1.
-      counter += 1;
-          console.log("You clicked this crystal " + counter + " times!");
-
-          $("#result").append(blue);
+        $("#amber").click(function () {
+            userSum(amber);
+            console.log(amber);
+        counter += 1;
 
         });
 
-        $('#red').on("click", function() {
-  // Each time the user clicks the crystal the counter goes up by 1.
-      counter += 1;
-          console.log("You clicked this crystal " + counter + " times!");
+        $("#blue").click(function () {
+            userSum(blue);
+            console.log(blue);
 
-          $("#result").append(red);
 
         });
 
-        $('#black').on("click", function() {
-  // Each time the user clicks the crystal the counter goes up by 1.
-      counter += 1;
-          console.log("You clicked this crystal " + counter + " times!");
+        $("#red").click(function () {
 
-          $("#result").append(black);
+            userSum(red);
+            console.log(red);
+
 
         });
+        $("#black").click(function () {
+            userSum(black);
 
-        $('#yellow').on("click", function() {
-  // Each time the user clicks the crystal the counter goes up by 1.
-      counter += 1;
-          console.log("You clicked this crystal " + counter + " times!");
 
-          $("#result").append(yellow);
+            console.log(black);
+
 
         });
+        $("#yellow").click(function () {
+
+            userSum(yellow);
+
+            console.log(yellow);
 
 
-        // Here we create the on click event that gets the user"s pick
-        	$("button").on("click", function() {
-          // Here this lockGame line prevents the user from changing the option after the game is done.
-          if (lockGame !== true) {
-            // We get the value associated with the button the user picked from here
-            yourPick = $(this).attr("value");
-            console.log("Your Pick: " + yourPick);
-           
-  		// $("#amber").on("click", function() {
-  		//   $("#amber").text(result);
-  		// });
-  		// console.log()
-  		// $("#black").on("click", function() {
-  		//   $("#black").text(result);
-  		// });
-  		// console.log()
-  		// $("#blue").on("click", function() {
-  		//   $("#blue").text(result);
-  		// });
-  		// console.log()
-  		// $("#red").on("click", function() {
-  		//   $("#red").text(result);
-  		// });
-  		// console.log()
-  		// $("#yellow").on("click", function() {
-  		//   $("#yellow").text(result);
-  		// });
-  		// console.log()
+        });
+         function reset() {
+
+          var computerPick =Math.floor(Math.random() * (121-19)+19);
+          $('#computerPick').text(computerPick);
+          var amber = Math.floor(Math.random() * (13 - 1) + (1));
+          var black = Math.floor(Math.random() * (13 - 1) + (1));
+          var blue = Math.floor(Math.random() * (13 - 1) + (1));
+          var red = Math.floor(Math.random() * (13 - 1) + (1));
+          var yellow = Math.floor(Math.random() * (13 - 1) + (1));
+          counter = 0;
+          $("#result").html(counter);
+        }
+
+
+        function userSum (crystalNumber) {
+          counter += crystalNumber;
+
+          $("#result").html(counter);
+
+          if (counter>computerPick){
+
+            alert("sorry game over!");
+            losses++;
+            $('#losses').html(losses);
+
+            reset();
+
+          } else if (counter == computerPick)
+          {
+
+            alert("You Win!!");
+            wins++;
+            $('#wins').html(wins);
+
+            reset();
+          }
+
+
+        }
+      // $("#amber").on("click", function() {
+      //   $("#amber").text(result);
+      // });
+      // console.log()
+      // $("#black").on("click", function() {
+      //   $("#black").text(result);
+      // });
+      // console.log()
+      // $("#blue").on("click", function() {
+      //   $("#blue").text(result);
+      // });
+      // console.log()
+      // $("#red").on("click", function() {
+      //   $("#red").text(result);
+      // });
+      // console.log()
+      // $("#yellow").on("click", function() {
+      //   $("#yellow").text(result);
+      // });
+      // console.log()
 
 
 
       if (result === computerPick) {
 
-        alert("You win!");
+      $('#winModal').modal('show');
+      $('#smart')[0].play();
       }
 
       // Here we added an "else if" condition. If the user's counter ever exceeds the computerPick...
       else if (result >= computerPick) {
 
         // Then they are alerted with a loss.
-        alert("You lose!!");
+        $('#doh')[0].play();
+        $('#loseModal').modal('show');
       }
 
-            // // If your pick matched the computer's pick you let them know.
-            // if (parseInt(result) === computerPick) {
-            //   $("#result").text("Yep! You got it! Refresh the page to play again.");
-            //   lockGame = true;
-            // }
-            // // If the numbers did not match. You also let them know
-            // else {
-            //   $("#result").text("Nope. Refresh the page to play again.");
-            //   lockGame = true;
-            // }
-          }
-        });
-      });
+
+});
+
 
 //some effect to perfect it
 
 var s = c.width = c.height = 1500
-  , ctx = c.getContext( '2d' )
+, ctx = c.getContext( '2d' )
 
-  , opts = {
-    particles: 500,
-    particleBaseSize: 4,
-    particleAddedSize: 1,
-    particleMaxSize: 5,
-    particleBaseLight: 5,
-    particleAddedLight: 30,
-    particleBaseBaseAngSpeed: .001,
-    particleAddedBaseAngSpeed: .001,
-    particleBaseVariedAngSpeed: .0005,
-    particleAddedVariedAngSpeed: .0005,
-    sourceBaseSize: 3,
-    sourceAddedSize: 3,
-    sourceBaseAngSpeed: -.01,
-    sourceVariedAngSpeed: .005,
-    sourceBaseDist: 130,
-    sourceVariedDist: 50,
-    
-    particleTemplateColor: 'hsla(hue,80%,light%,alp)',
-    repaintColor: 'rgba(0,0,0,.1)',
-    enableTrails: false
-  }
-  
-  , util = {
-    square: x => x*x,
-    tau: 6.2831853071795864769252867665590057683943
-  }
-    
-  , particles = []
-  , source = new Source
-  , tick = 0;
+, opts = {
+  particles: 500,
+  particleBaseSize: 4,
+  particleAddedSize: 1,
+  particleMaxSize: 5,
+  particleBaseLight: 5,
+  particleAddedLight: 30,
+  particleBaseBaseAngSpeed: .001,
+  particleAddedBaseAngSpeed: .001,
+  particleBaseVariedAngSpeed: .0005,
+  particleAddedVariedAngSpeed: .0005,
+  sourceBaseSize: 3,
+  sourceAddedSize: 3,
+  sourceBaseAngSpeed: -.01,
+  sourceVariedAngSpeed: .005,
+  sourceBaseDist: 130,
+  sourceVariedDist: 50,
+
+  particleTemplateColor: 'hsla(hue,80%,light%,alp)',
+  repaintColor: 'rgba(0,0,0,.1)',
+  enableTrails: false
+}
+
+, util = {
+  square: x => x*x,
+  tau: 6.2831853071795864769252867665590057683943
+}
+
+, particles = []
+, source = new Source
+, tick = 0;
 
 function Particle() {
   this.dist = ( Math.sqrt( Math.random() ) ) * s / 2;
@@ -207,14 +225,14 @@ Particle.prototype.step = function() {
   this.rad += angSpeed;
   
   var x = this.dist * Math.cos( this.rad )
-    , y = this.dist * Math.sin( this.rad )
+  , y = this.dist * Math.sin( this.rad )
   
-    , squareDist = util.square( x - source.x ) + util.square( y - source.y )
-    , sizeProp = Math.pow( s, 1/2 ) / Math.pow( squareDist, 1/2 )
-    , color = opts.particleTemplateColor
-      .replace( 'hue', this.rad / util.tau * 360 + tick )
-      .replace( 'light', opts.particleBaseLight + sizeProp * opts.particleAddedLight )
-      .replace( 'alp', .8 );
+  , squareDist = util.square( x - source.x ) + util.square( y - source.y )
+  , sizeProp = Math.pow( s, 1/2 ) / Math.pow( squareDist, 1/2 )
+  , color = opts.particleTemplateColor
+  .replace( 'hue', this.rad / util.tau * 360 + tick )
+  .replace( 'light', opts.particleBaseLight + sizeProp * opts.particleAddedLight )
+  .replace( 'alp', .8 );
   
   ctx.fillStyle = color;
   ctx.beginPath();
@@ -228,7 +246,7 @@ function Source() {
   this.rad = Math.random() * util.tau;
 }
 Source.prototype.step = function() {
-  
+
   if( !this.mouseControlled ) {
     var angSpeed = opts.sourceBaseAngSpeed + Math.sin( this.rad * 6 + tick / 100 ) * opts.sourceVariedAngSpeed;
     this.rad += angSpeed;
@@ -246,7 +264,7 @@ Source.prototype.step = function() {
 }
 
 function anim() {
-  
+
   window.requestAnimationFrame( anim );
   
   ++tick;
@@ -275,7 +293,7 @@ ctx.fillRect( 0, 0, s, s );
 anim();
 
 c.addEventListener( 'mousemove', ( e ) => {
-  
+
   var bbox = c.getBoundingClientRect();
   
   source.x = e.clientX - bbox.left - s/2;
@@ -283,7 +301,7 @@ c.addEventListener( 'mousemove', ( e ) => {
   source.mouseControlled = true;
 })
 c.addEventListener( 'mouseleave', ( e ) => {
-  
+
   var bbox = c.getBoundingClientRect();
   
   source.x = e.clientX - bbox.left - s/2;
@@ -295,7 +313,7 @@ c.addEventListener( 'mouseleave', ( e ) => {
   
   source.mouseControlled = false;
 })
-   
+
   // //Hangman codes
 
   // var words = ["napa", "san francisco", "walnut creek" , "sunnyvale" , "palo alto" , "stanford" , "san jose" , "redwood city"];
@@ -431,9 +449,9 @@ c.addEventListener( 'mouseleave', ( e ) => {
 
   //       // Theme Button
   //       $(".theme-button").on("click", function() {
-  //       	audioElement.play();
+  //        audioElement.play();
   //       });
 
   //       $(".pause-button").on("click", function() {
-  //       	audioElement.pause();
+  //        audioElement.pause();
   //       }); 
