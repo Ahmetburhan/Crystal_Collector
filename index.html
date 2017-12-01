@@ -1,51 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Number Checker</title>
-  <!-- Added link to the jQuery Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./js/scripts.js"></script>
-  <!-- Added a link to Bootstrap-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-<body>
-  <div class="jumbotron">
-    <h1 class="text-center">Crystal Collector</h1>
-    <h2 class="text-center">See if you can guess the number by adding jewels together</h2>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Computer Pick</h3>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Crystal Game Collector by Ahmet K.</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#myModal").modal('show');
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="jumbotron">
+      <h1 class="text-center">Crystal Collector</h1>
+      <h2 class="text-center">See if you can guess the number by adding jewels together</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Computer Pick</h3>
+          </div>
+          <div class="panel-body text-center">
+            <h1 id="computer-pick" value="computerPick"></h1>
+          </div>
         </div>
-        <div class="panel-body text-center">
-          <h1 id="computer-pick" value="computerPick"></h1>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">You Pick</h3>
+          </div>
+          <div class="panel-body text-center">
+            <img id="amber" src="./img/amber.png" value="amber" />
+            <img id="blue" src="./img/blue.png" value="blue" />
+            <img id="black" src="./img/black.png" value="black" />
+            <img id="red" src="./img/red.png" value="red" />
+            <img id="yellow" src="./img/yellow.png" value="yellow" />
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Result</h3>
+          </div>
+          <div class="panel-body text-center">
+            <h1 id="result"></h1>
+          </div>
         </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">You Pick</h3>
-        </div>
-        <div class="panel-body text-center">
-          <img id="amber" src="./img/amber.png" value="amber" />
-          <img id="blue" src="./img/blue.png" value="blue" />
-          <img id="black" src="./img/black.png" value="black" />
-          <img id="red" src="./img/red.png" value="red" />
-          <img id="yellow" src="./img/yellow.png" value="yellow" />
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Scoreboard</h3>
+      </div>
+      <div class="panel-body">
+        <h3><span id="status"></span></h3>
+        <h3>Wins: <span id="win"></span></h3>
+        <h3>Losses: <span id="loss"></span> </h3>
+        <h1 id="scoreboard"></h1>
+      </div>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3 class="modal-title red">Crystal Collector app tutorial!</h3>
+          </div>
+          <h4>Here's the scoop: You will be given a random number at the start of the game.</h4>
+          <ol>    
+
+            <li>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</li>
+
+            <li>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</li>
+
+            <li>Each time the game starts, the game will change the values of each crystal.</li>
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
+            </div>
+
+          </div>
         </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Result</h3>
+      
+    </div>
+    <!-- pop up on the winning case -->
+    <div class="modal fade" id="winModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title red">Eat a donut! You won the game!</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <img class="img-responsive" src="img/smartwin.gif" width="372" alt="i am so smart gif" />
+            </p>
+          </div>
+          <div class="modal-footer">
+            <p class="pull-left">Nice! You have collected right amount jewels</p><span class="theWord text-left pull-left"></span>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
-        <div class="panel-body text-center">
-          <h1 id="result"></h1>
+      </div>
+    </div>
+    <!-- pop up on losing model -->
+    <div class="modal fade" id="loseModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title red">At least you have your good looks!</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <img class="img-responsive" src="img/youarealoser.gif" width="498" alt="homers gif" />
+            </p>
+          </div>
+          <div class="modal-footer">
+            <p class="pull-left">Sorry! The word was: &nbsp;</p><span class="theWord text-left pull-left"></span>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
 </body>
 </html>
