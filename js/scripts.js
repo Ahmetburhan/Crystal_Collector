@@ -45,15 +45,15 @@
          // We then reveal the computer's pick in the html
          // and consolo log all the values of Jewels
          $('#computer-pick').text(computerPick);
-         $('#amber').html(amber);
+         //$('#amber').html(amber);
          console.log("Amber: " + amber);
-         $('#result').html(black);
+         //$('#result').html(black);
          console.log("Black: " + black);
-         $('#result').html(blue);
+         //$('#result').html(blue);
          console.log("Blue: " + blue);
-         $('#result').html(yellow);
+         //$('#result').html(yellow);
          console.log("Red: " + red);
-         $('#result').html(red);
+         //$('#result').html(red);
          console.log("Yellow: " + yellow);
 
 //onclick functions
