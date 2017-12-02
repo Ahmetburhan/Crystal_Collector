@@ -53,7 +53,8 @@
          console.log("Blue: " + blue);
          //$('#result').html(yellow);
          console.log("Red: " + red);
-         //$('#result').html(red);
+         //$('#result').html(red); 
+        
          console.log("Yellow: " + yellow);
 
 //onclick functions
